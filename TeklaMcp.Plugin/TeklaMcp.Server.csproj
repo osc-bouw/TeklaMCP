@@ -1,0 +1,136 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <!-- Tekla Structures version - override via CLI: /p:TeklaVersion=2024 -->
+    <TeklaVersion Condition="'$(TeklaVersion)'==''">2023</TeklaVersion>
+    <TeklaApiPath Condition="'$(TeklaApiPath)'==''">C:\Program Files\Tekla Structures\$(TeklaVersion)\bin\plugins</TeklaApiPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TeklaMcp.Contracts\TeklaMcp.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Relay" Version="3.1.1" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DotNetKit">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\DotNetKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusion">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Fusion.dll</HintPath>
+    </Reference>
+    <Reference Include="Model.Common">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Model.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Application.Library">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Application.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.Common.Contracts">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.Common.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.Contracts">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.DirectManipulation">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.DirectManipulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.Geometry">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.Toolkit">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.UI.Wpf">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.UI.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.BIM.Utilities">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.BIM.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Common.Geometry">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Common.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Common.Geometry.Primitives">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Common.Geometry.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Analysis">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Analysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Catalogs">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Catalogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.CustomPropertyPlugin">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.CustomPropertyPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Datatype">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Datatype.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Dialog">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Dialog.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.DirectManipulation">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.DirectManipulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Drawing">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.DrawingPresentationModel">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.DrawingPresentationModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.DrawingPresentationModelInterface">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.DrawingPresentationModelInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.DrawingPresentationPluginInterface">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.DrawingPresentationPluginInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Geometry3d.Compatibility">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Geometry3d.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Model">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.ObjectDimensioningModel">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.ObjectDimensioningModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.ObjectDimensioningPlugin">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.ObjectDimensioningPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Plugins">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Ui.WpfKit">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Structures.Ui.WpfKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Technology.Serialization">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Tekla.Technology.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Package.Manager">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Trimble.Package.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Remoting">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Trimble.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Technology.MsgLib">
+      <HintPath>..\..\..\TeklaStructures\2025.0\2025 again\Trimble.Technology.MsgLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Tekla Open API local references (adjust TeklaApiPath or TeklaVersion as needed) -->
+
+</Project>

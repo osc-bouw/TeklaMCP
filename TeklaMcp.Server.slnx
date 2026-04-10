@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TeklaMcp.Contracts/TeklaMcp.Contracts.csproj" />
+  <Project Path="TeklaMcp.Plugin/TeklaMcp.Server.csproj" />
+</Solution>
