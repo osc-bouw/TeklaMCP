@@ -40,7 +40,7 @@ TeklaMCP runs as a WPF desktop application alongside Tekla Structures. It expose
 1. Clone the repository.
 2. Set the Tekla API reference path. The `.csproj` defaults to looking for Tekla assemblies at:
    ```
-   C:\Program Files\Tekla Structures\<version>\bin\plugins
+   C:\Tekla Structures\<version>\bin\plugins
    ```
    Override the version via MSBuild property:
    ```
