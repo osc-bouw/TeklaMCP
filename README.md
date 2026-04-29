@@ -35,19 +35,7 @@ TeklaMCP runs as a WPF desktop application alongside Tekla Structures. It expose
 - .NET Framework 4.8
 - An MCP-compatible AI client (Claude Desktop, Cursor, etc.)
 
-## Build
 
-1. Clone the repository.
-2. Set the Tekla API reference path. The `.csproj` defaults to looking for Tekla assemblies at:
-   ```
-   C:\Tekla Structures\<version>\bin\plugins
-   ```
-   Override the version via MSBuild property:
-   ```
-   msbuild /p:TeklaVersion=2024
-   ```
-   Or set `TeklaApiPath` to point directly at the folder containing the Tekla DLLs.
-3. Build with Visual Studio 2022+ or `dotnet build` / `msbuild`.
 
 ## Usage
 
